@@ -6,5 +6,30 @@
     <title>Conversor de Bases Numéricas</title>
 </head>
 <body>
+<div class="container">
+        <h2>Conversor de Bases</h2>
 
+        <label for="numeroInput">Digite o número:</label>
+        <input type="text" id="numeroInput" placeholder="Ex: 1010, 15, F">
+
+        <label for="baseOrigem">Base de Origem:</label>
+        <select id="baseOrigem">
+            <option value="10">Decimal</option>
+            <option value="2">Binário</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+        </select>
+
+        <label for="baseDestino">Converter para:</label>
+        <select id="baseDestino">
+            <option value="2">Binário</option>
+            <option value="10">Decimal</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+        </select>
+
+        <button onclick="converterBase()">Converter</button>
+
+        <div id="resultado">Resultado: </div>
+    </div>
 </body>
