@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Bases Numéricas</title>
+    <style>
+        /* Estilo básico e minimalista focado apenas no funcionamento (v1.0.0) */
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0056b3;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+        <h2>Conversor de Bases</h2>
+
+        <label for="numeroInput">Digite o número:</label>
+        <input type="text" id="numeroInput" placeholder="Ex: 1010, 15, F">
+
+        <label for="baseOrigem">Base de Origem:</label>
+        <select id="baseOrigem">
+            <option value="10">Decimal</option>
+            <option value="2">Binário</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+        </select>
+
+        <label for="baseDestino">Converter para:</label>
+        <select id="baseDestino">
+            <option value="2">Binário</option>
+            <option value="10">Decimal</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+        </select>
+
+        <button onclick="converterBase()">Converter</button>
+
+        <div id="resultado">Resultado: </div>
+    </div>
+    <script>
+        // Lógica principal de conversão
+        function converterBase() {
+            // 1. Captura os valores digitados/selecionados pelo usuário
+            const numeroStr = document.getElementById('numeroInput').value.trim();
+            const baseOrigem = parseInt(document.getElementById('baseOrigem').value);
+            const baseDestino = parseInt(document.getElementById('baseDestino').value);
+            const resultadoDiv = document.getElementById('resultado');
+
+            // 2. Validação simples para evitar campo vazio
+            if (numeroStr === "") {
+                resultadoDiv.innerText = "Por favor, digite um número válido.";
+                resultadoDiv.style.color = "red";
+                return;
+            }
+
+            // 3. Converte o número de origem (seja qual for) para Decimal primeiro
+            const numeroDecimal = parseInt(numeroStr, baseOrigem);
+
+            // 4. Verifica se a conversão falhou (ex: digitou letra na base binária)
+            if (isNaN(numeroDecimal)) {
+                resultadoDiv.innerText = "Erro: O número digitado não pertence à base de origem selecionada.";
+                resultadoDiv.style.color = "red";
+                return;
+            }
+
+            // 5. Converte o número decimal para a base de destino escolhida
+            let resultadoFinal = numeroDecimal.toString(baseDestino).toUpperCase();
+
+            // 6. Exibe o resultado na tela
+            resultadoDiv.innerText = "Resultado: " + resultadoFinal;
+            resultadoDiv.style.color = "#0056b3"; // Volta a cor ao normal em caso de sucesso
+        }
+    </script>
+</body>
