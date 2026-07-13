@@ -64,7 +64,7 @@
         </select>
 
         <button onclick="converterBase()">Converter</button>
-
+        <button onclick="limparCampos()">Limpar</button>
         <div id="resultado">Resultado: </div>
     </div>
     <script>
@@ -100,5 +100,11 @@
             resultadoDiv.innerText = "Resultado: " + resultadoFinal;
             resultadoDiv.style.color = "#0056b3"; // Volta a cor ao normal em caso de sucesso
         }
+
+        function limparCampos() {
+            document.getElementById('numeroInput').value = "";
+            document.getElementById('resultado').innerText = "Resultado: ";
+            document.getElementById('resultado').style.color = "#0056b3";
+            }
     </script>
 </body>
