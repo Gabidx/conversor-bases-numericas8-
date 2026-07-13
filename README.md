@@ -7,3 +7,4 @@ Projeto colaborativo para conversão entre bases decimais, binárias, hexadecima
 | :--- | :--- |
 | José Gabriel Soares de Souza | @[Gabidx] |
 | Abimael Oliveira Camurça Barros | @[abimael-dev] |# conversor-bases-numericas8-
+| Bruno Gomes Silva | @[Gomesbruno-arte] |
