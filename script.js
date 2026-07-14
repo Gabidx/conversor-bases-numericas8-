@@ -30,7 +30,7 @@ function converterBase() {
             resultadoDiv.innerText = "Resultado: " + resultadoFinal;
             resultadoDiv.style.color = "#0056b3"; 
         }
-
+        // Limpa os campos do formulário e prepara uma nova conversão.
         function limparCampos() {
             document.getElementById('numeroInput').value = "";
             document.getElementById('resultado').innerText = "Resultado: ";
