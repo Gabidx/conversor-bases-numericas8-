@@ -6,7 +6,7 @@ function converterBase() {
             const baseDestino = parseInt(document.getElementById('baseDestino').value);
             const resultadoDiv = document.getElementById('resultado');
 
-            
+            // Verifica se o usuário informou um valor antes da conversão
             if (numeroStr === "") {
                 resultadoDiv.innerText = "Por favor, digite um número válido.";
                 resultadoDiv.style.color = "red";
