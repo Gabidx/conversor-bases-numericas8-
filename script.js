@@ -1,6 +1,6 @@
 // Função responsável por converter um número entre diferentes bases numéricas.
 function converterBase() {
-            
+            // Captura os dados informados pelo usuário para realizar a conversão.
             const numeroStr = document.getElementById('numeroInput').value.trim();
             const baseOrigem = parseInt(document.getElementById('baseOrigem').value);
             const baseDestino = parseInt(document.getElementById('baseDestino').value);
