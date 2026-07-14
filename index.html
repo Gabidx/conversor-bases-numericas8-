@@ -67,66 +67,6 @@
         <button onclick="limparCampos()">Limpar</button>
         <div id="resultado">Resultado: </div>
     </div>
-    <script>
-       // Dicionário de nomes das bases numéricas       const nomesBase = {
-         2: "Binário",
-         8: "Octal",
-         10: "Decimal",
-         16: "Hexadecimal"
-      };
-        
-        // Lógica principal de conversão
-        function converterBase() {
-            // 1. Captura os valores digitados/selecionados pelo usuário
-            const numeroStr = document.getElementById('numeroInput').value.trim();
-            const baseOrigem = parseInt(document.getElementById('baseOrigem').value);
-            const baseDestino = parseInt(document.getElementById('baseDestino').value);
-            const resultadoDiv = document.getElementById('resultado');
-
-            // 2. Validação simples para evitar campo vazio
-            if (numeroStr === "") {
-                resultadoDiv.innerText = "Por favor, digite um número válido.";
-                resultadoDiv.style.color = "red";
-                return;
-            }
-            
-            // 3. Valida se a base de origem é igual à base de destino
-            if (baseOrigem === baseDestino) {
-                resultadoDiv.innerText = "Escolha bases diferentes para converter.";
-                resultadoDiv.style.color = "red";
-                return;
-            }
-            // 4. Converte o número de origem (seja qual for) para Decimal primeiro
-            const numeroDecimal = parseInt(numeroStr, baseOrigem);
-
-            // 5. Verifica se a conversão falhou (ex: digitou letra na base binária)
-            if (isNaN(numeroDecimal)) {
-                resultadoDiv.innerText = "Erro: \"" + numeroStr + "\" contém caractere(s) inválido(s) para a base " + nomesBase[baseOrigem] + ".";
-                resultadoDiv.style.color = "red";
-                return;
-            }
-
-            // 6. Converte o número decimal para a base de destino escolhida
-            let resultadoFinal = numeroDecimal.toString(baseDestino).toUpperCase();
-
-            // 7. Exibe o resultado na tela
-            resultadoDiv.innerText = "Resultado: " + resultadoFinal;
-            resultadoDiv.style.color = "#0056b3"; // Volta a cor ao normal em caso de sucesso
-        }
-
-        function limparCampos() {
-            document.getElementById('numeroInput').value = "";
-            document.getElementById('baseOrigem').value = "10";
-            document.getElementById('baseDestino').value = "2";
-            document.getElementById('resultado').innerText = "Resultado: ";
-            document.getElementById('resultado').style.color = "#0056b3";
-            document.getElementById('numeroInput').focus();
-         }
-        
-        document.getElementById('numeroInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                converterBase();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
+</html>
