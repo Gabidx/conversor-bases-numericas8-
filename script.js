@@ -23,7 +23,7 @@ function converterBase() {
                 return;
             }
 
-            
+            // Realiza a conversão do número para a base de destino escolhida.
             let resultadoFinal = numeroDecimal.toString(baseDestino).toUpperCase();
 
             
