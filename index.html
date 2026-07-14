@@ -68,6 +68,13 @@
         <div id="resultado">Resultado: </div>
     </div>
     <script>
+       // Dicionário de nomes das bases numéricas       const nomesBase = {
+         2: "Binário",
+         8: "Octal",
+         10: "Decimal",
+         16: "Hexadecimal"
+      };
+        
         // Lógica principal de conversão
         function converterBase() {
             // 1. Captura os valores digitados/selecionados pelo usuário
@@ -94,7 +101,7 @@
 
             // 5. Verifica se a conversão falhou (ex: digitou letra na base binária)
             if (isNaN(numeroDecimal)) {
-                resultadoDiv.innerText = "Erro: O número digitado não pertence à base de origem selecionada.";
+                resultadoDiv.innerText = "Erro: \"" + numeroStr + "\" contém caractere(s) inválido(s) para a base " + nomesBase[baseOrigem] + ".";
                 resultadoDiv.style.color = "red";
                 return;
             }
