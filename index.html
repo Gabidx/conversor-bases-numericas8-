@@ -82,21 +82,27 @@
                 resultadoDiv.style.color = "red";
                 return;
             }
-
-            // 3. Converte o número de origem (seja qual for) para Decimal primeiro
+            
+            // 3. Valida se a base de origem é igual à base de destino
+            if (baseOrigem === baseDestino) {
+                resultadoDiv.innerText = "Escolha bases diferentes para converter.";
+                resultadoDiv.style.color = "red";
+                return;
+            }
+            // 4. Converte o número de origem (seja qual for) para Decimal primeiro
             const numeroDecimal = parseInt(numeroStr, baseOrigem);
 
-            // 4. Verifica se a conversão falhou (ex: digitou letra na base binária)
+            // 5. Verifica se a conversão falhou (ex: digitou letra na base binária)
             if (isNaN(numeroDecimal)) {
                 resultadoDiv.innerText = "Erro: O número digitado não pertence à base de origem selecionada.";
                 resultadoDiv.style.color = "red";
                 return;
             }
 
-            // 5. Converte o número decimal para a base de destino escolhida
+            // 6. Converte o número decimal para a base de destino escolhida
             let resultadoFinal = numeroDecimal.toString(baseDestino).toUpperCase();
 
-            // 6. Exibe o resultado na tela
+            // 7. Exibe o resultado na tela
             resultadoDiv.innerText = "Resultado: " + resultadoFinal;
             resultadoDiv.style.color = "#0056b3"; // Volta a cor ao normal em caso de sucesso
         }
@@ -108,12 +114,12 @@
             document.getElementById('resultado').innerText = "Resultado: ";
             document.getElementById('resultado').style.color = "#0056b3";
             document.getElementById('numeroInput').focus();
-            }
+         }
         
         document.getElementById('numeroInput').addEventListener('keypress', function(event) {
-114     if (event.key === 'Enter') {
-115         converterBase();
-116     }
-117 });
+            if (event.key === 'Enter') {
+                converterBase();
+            }
+        });
     </script>
 </body>
